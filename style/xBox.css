@@ -1,0 +1,78 @@
+/*----------------------------- 提示文本框 -----------------------------*/
+#prompt-content {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.prompt-box {
+  width: 42%;
+  height: 200px;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 25px;
+  box-shadow: 1.1px 0px 10.8px -34px rgba(0, 0, 0, 0.259), 7px 0px 81px -34px rgba(0, 0, 0, 1.12);
+  border: 0.1 solid rgba(0, 0, 0, 0.12);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2em 0.2em;
+  z-index: 9999;
+}
+/*----------------------------- 提示文本框 -----------------------------*/
+
+
+/*----------------------------- pop 弹出消息窗口 -----------------------------*/
+#pop-content {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 999;
+  margin-top: 1em;
+}
+
+.pop-box {
+  width: 42%;
+  height: 35px;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 25px;
+  box-shadow: 1.1px 0px 10.8px -34px rgba(0, 0, 0, 0.259), 7px 0px 81px -34px rgba(0, 0, 0, 1.12);
+  border: 0.1 solid rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2em 0.2em;
+  z-index: 9999;
+  color: var(--text-color-1);
+  text-align: center;
+  margin-top: 1em;
+}
+
+.pop-box div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.font-box {
+  width: 20%;
+  height: 100%;
+  font-size: 12px;
+}
+
+.message-box {
+  width: 78%;
+  height: 100%;
+  font-size: 18px;
+}
+/*----------------------------- pop 弹出消息窗口 -----------------------------*/
