@@ -1,7 +1,6 @@
 import { defaultIcon, defaultAE } from './config/defaultConfig'
 
 class XBox {
-  static index = 0
   static popContent = null
   static promptContent = null
 
@@ -62,7 +61,7 @@ class XBox {
 
     const popBox = document.createElement('div')
     popBox.className = 'pop-box'
-    popBox.innerHTML = `${defaultIcon[0]}<div class="message-box">${mes}${this.index++}</div>`
+    popBox.innerHTML = `${defaultIcon[0]}<div class="message-box">${mes}</div>`
 
     // 添加开始动画
     const beginAE = new KeyframeEffect(popBox, defaultAE[0].in, {
