@@ -17,35 +17,13 @@ class XBox {
     // 创建盒子
     const promptBox = document.createElement('div')
     promptBox.className = 'prompt-box'
-    promptBox.innerHTML = `${defaultIcon[0]}<div class="message-box">${mes}${this.index++}</div>`
-
-    // 添加开始动画
-    const beginAE = new KeyframeEffect(promptBox, defaultAE[0].in, {
-      duration: 300,
-      easing: 'ease-out',
+    promptBox.innerHTML = `${defaultIcon[0]}<div class="message-box">${mes}</div>`
+    
+    this.animatationHandle(promptBox,  this.promptContent, () => {
+      promptBox.style.display = 'none'
+      promptBox.remove()
+      this.promptContent.remove()
     })
-    // 在首位添加
-    this.promptContent.insertBefore(promptBox, this.promptContent.firstChild)
-    const beginA = new Animation(beginAE, document.timeline)
-    beginA.play()
-    setTimeout(() => {
-      // 结束动画
-      const backAnimationEffect = new KeyframeEffect(
-        promptBox, // element to animate
-        defaultAE[0].out,
-        {
-          duration: 300,
-          easing: 'ease-in',
-        }
-      )
-      const backAnimation = new Animation(backAnimationEffect, document.timeline)
-      backAnimation.play()
-      backAnimation.onfinish = () => {
-        promptBox.style.display = 'none'
-        promptBox.remove()
-        // this.promptContent.remove()
-      }
-    }, dur)
   }
 
   // 弹出消息
@@ -63,19 +41,27 @@ class XBox {
     popBox.className = 'pop-box'
     popBox.innerHTML = `${defaultIcon[0]}<div class="message-box">${mes}</div>`
 
+    this.animatationHandle(popBox, this.popContent, () => {
+      popBox.style.display = 'none'
+      popBox.remove()
+    })
+  }
+
+  // 动画处理
+  static animatationHandle = (boxContent, boxParent, callback) => {
     // 添加开始动画
-    const beginAE = new KeyframeEffect(popBox, defaultAE[0].in, {
+    const beginAE = new KeyframeEffect(boxContent, defaultAE[0].in, {
       duration: 300,
       easing: 'ease-out',
     })
     // 在首位添加
-    this.popContent.insertBefore(popBox, this.popContent.firstChild)
+    boxParent.insertBefore(boxContent, boxParent.firstChild)
     const beginA = new Animation(beginAE, document.timeline)
     beginA.play()
     setTimeout(() => {
       // 结束动画
       const backAnimationEffect = new KeyframeEffect(
-        popBox, // element to animate
+        boxContent, // element to animate
         defaultAE[0].out,
         {
           duration: 300,
@@ -84,11 +70,8 @@ class XBox {
       )
       const backAnimation = new Animation(backAnimationEffect, document.timeline)
       backAnimation.play()
-      backAnimation.onfinish = () => {
-        popBox.style.display = 'none'
-        popBox.remove()
-      }
-    }, dur)
+      backAnimation.onfinish = callback
+    }, 2000)
   }
 }
 
