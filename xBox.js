@@ -48,7 +48,7 @@ class XBox {
   }
 
   // 动画处理
-  static animatationHandle = (boxContent, boxParent, callback) => {
+  static animatationHandle = (boxContent, boxParent, endCallback = null, beginCallback = null) => {
     // 添加开始动画
     const beginAE = new KeyframeEffect(boxContent, defaultAE[0].in, {
       duration: 300,
@@ -58,6 +58,7 @@ class XBox {
     boxParent.insertBefore(boxContent, boxParent.firstChild)
     const beginA = new Animation(beginAE, document.timeline)
     beginA.play()
+    beginA.onfinish = beginCallback
     setTimeout(() => {
       // 结束动画
       const backAnimationEffect = new KeyframeEffect(
@@ -70,7 +71,7 @@ class XBox {
       )
       const backAnimation = new Animation(backAnimationEffect, document.timeline)
       backAnimation.play()
-      backAnimation.onfinish = callback
+      backAnimation.onfinish = endCallback
     }, 2000)
   }
 }
