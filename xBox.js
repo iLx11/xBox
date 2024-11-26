@@ -1,4 +1,8 @@
-import { defaultIcon, defaultAE } from './config/defaultConfig'
+import {
+  defaultIcon,
+  defaultAE,
+  defaultBoxConfig,
+} from './config/defaultConfig'
 
 class XBox {
   static popContent = null
