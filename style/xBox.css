@@ -16,7 +16,8 @@
   height: 200px;
   background: rgba(255, 255, 255, 1);
   border-radius: 25px;
-  box-shadow: 1.1px 0px 10.8px -34px rgba(0, 0, 0, 0.259), 7px 0px 81px -34px rgba(0, 0, 0, 1.12);
+  box-shadow: 1.1px 0px 10.8px -34px rgba(0, 0, 0, 0.259),
+    7px 0px 81px -34px rgba(0, 0, 0, 1.12);
   border: 0.1 solid rgba(0, 0, 0, 0.12);
   display: flex;
   justify-content: center;
@@ -25,7 +26,6 @@
   z-index: 9999;
 }
 /*----------------------------- 提示文本框 -----------------------------*/
-
 
 /*----------------------------- pop 弹出消息窗口 -----------------------------*/
 #pop-content {
@@ -42,21 +42,26 @@
 }
 
 .pop-box {
-  width: 42%;
-  height: 35px;
-  background: rgba(255, 255, 255, 1);
+  width: 400px;
+  height: auto;
+  background: rgb(253, 251, 251);
+
   border-radius: 25px;
-  box-shadow: 1.1px 0px 10.8px -34px rgba(0, 0, 0, 0.259), 7px 0px 81px -34px rgba(0, 0, 0, 1.12);
-  border: 0.1 solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 2px 35px rgba(0, 0, 0, 0.09);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: center;
-  padding: 2em 0.2em;
+  /* padding: 2em 0.2em; */
+  padding: 6.8px;
   z-index: 9999;
-  color: var(--text-color-1);
-  text-align: center;
   margin-top: 1em;
+  overflow: hidden;
+}
+
+.pop-box-s-1 {
+  border: 2.5px solid rgba(51, 51, 51, 0.5);
 }
 
 .pop-box div {
@@ -66,14 +71,75 @@
 }
 
 .font-box {
-  width: 20%;
-  height: 100%;
-  font-size: 12px;
+  width: 55px;
+  aspect-ratio: 1;
+  /* background: rgb(244, 211, 207); */
+  /* background: rgb(225, 225, 231); */
+  /* border: 2.5px solid rgb(244, 211, 207); */
+  align-self: self-start;
+  border-radius: 20px;
+  flex-shrink: 0;
+  fill: rgb(51, 51, 51, 0.6);
+}
+.font-box-s-1-mes {
+  background: rgb(225, 225, 231);
+  fill: rgb(51, 51, 51, 0.6);
+}
+
+.font-box-s-1-info {
+  background: rgb(210, 239, 252);
+  fill: rgb(51, 51, 51, 0.6);
+}
+
+.font-box-s-1-warn {
+  background: rgb(255, 233, 203);
+  fill: rgb(51, 51, 51, 0.6);
+}
+
+.font-box-s-1-err {
+  background: rgb(245, 218, 215);
+  fill: rgb(51, 51, 51, 0.6);
+}
+
+.font-box-s-1-success {
+  background: rgb(205, 252, 218);
+  fill: rgb(51, 51, 51, 0.6);
+}
+
+.font-box-s-2-mes {
+  fill: rgb(225, 225, 231);
+}
+
+.font-box-s-2-info {
+  fill: rgb(173, 218, 227);
+}
+
+.font-box-s-2-warn {
+  fill: rgb(227, 205, 173);
+}
+
+.font-box-s-2-err {
+  fill: rgb(245, 218, 215);
+}
+
+.font-box-s-2-success {
+  fill: rgb(153, 234, 176);
 }
 
 .message-box {
-  width: 78%;
+  /* width: 78%; */
   height: 100%;
-  font-size: 18px;
+  flex-grow: 1;
+  padding: 1%;
+  font-size: 20px;
+  word-break: break-all;
+  color: var(--text-color-1);
+  text-align: center;
 }
 /*----------------------------- pop 弹出消息窗口 -----------------------------*/
+.icon {
+  width: 2.2em;
+  height: 2.2em;
+  vertical-align: -0.15em;
+  overflow: hidden;
+}

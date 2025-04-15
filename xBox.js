@@ -1,6 +1,6 @@
 import {
   defaultIcon,
-  defaultAE,
+  defaultEF,
   defaultBoxConfig,
 } from './config/defaultConfig'
 
@@ -27,7 +27,7 @@ class XBox {
     // 创建盒子
     const promptBox = document.createElement('div')
     promptBox.className = 'prompt-box'
-    promptBox.innerHTML = `${defaultIcon[0]}<div class="message-box">${mes}</div>`
+    promptBox.innerHTML = `${defaultIcon[0].mes}<div class="message-box">${mes}</div>`
 
     this.animatationHandle(promptBox, this.promptContent, () => {
       promptBox.style.display = 'none'
@@ -43,7 +43,7 @@ class XBox {
    * @return {*}
    ********************************************************************************/
   static popMes(mes = '', config) {
-    let boxConfig = Object.assign({}, defaultBoxConfig, config)
+    const boxConfig = Object.assign({}, defaultBoxConfig, config)
     // 创建容器
     const popContentID = 'pop-content'
     this.popContent = document.querySelector('#' + popContentID)
@@ -54,10 +54,21 @@ class XBox {
     }
 
     const popBox = document.createElement('div')
-    popBox.className = 'pop-box'
-    popBox.innerHTML = `${defaultIcon[0]}<div class="message-box">${mes}</div>`
-
-    this.animatationHandle(popBox, this.popContent, () => {
+    popBox.className = `pop-box ${boxConfig.style[0] == 1 ? 'pop-box-s-1' : ''}`
+    popBox.innerHTML = `
+    <div class="font-box ${
+      boxConfig.style[1] == 1
+        ? `font-box-s-1-${boxConfig.type}`
+        : `font-box-s-2-${boxConfig.type}`
+    } ">
+          <svg class="icon" aria-hidden="true">
+              <use xlink:href="${defaultIcon[0][boxConfig.type]}"></use>
+          </svg>
+    </div>
+    <div class="message-box">${mes}</div>
+    `
+    popBox.style.width = boxConfig.width
+    this.animatationHandle(boxConfig, popBox, this.popContent, () => {
       popBox.style.display = 'none'
       popBox.remove()
       if (boxConfig.callback) {
@@ -75,13 +86,14 @@ class XBox {
    * @return {*}
    ********************************************************************************/
   static animatationHandle = (
+    boxConfig,
     boxContent,
     boxParent,
     endCallback = null,
     beginCallback = null
   ) => {
     // 添加开始动画
-    const beginAE = new KeyframeEffect(boxContent, defaultAE[0].in, {
+    const beginAE = new KeyframeEffect(boxContent, defaultEF[0].in, {
       duration: 300,
       easing: 'ease-out',
     })
@@ -94,7 +106,7 @@ class XBox {
       // 结束动画
       const backAnimationEffect = new KeyframeEffect(
         boxContent, // element to animate
-        defaultAE[0].out,
+        defaultEF[0].out,
         {
           duration: 300,
           easing: 'ease-in',
@@ -106,7 +118,7 @@ class XBox {
       )
       backAnimation.play()
       backAnimation.onfinish = endCallback
-    }, 2000)
+    }, boxConfig.dur)
   }
 }
 
