@@ -137,7 +137,7 @@
   text-align: center;
 }
 /*----------------------------- pop 弹出消息窗口 -----------------------------*/
-.icon {
+#pop-content .icon {
   width: 2.2em;
   height: 2.2em;
   vertical-align: -0.15em;
