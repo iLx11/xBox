@@ -1,0 +1,31 @@
+{
+  "name": "ilx1-x-box",
+  "version": "1.0.0",
+  "description": "弹出盒子",
+  "main": "xBox.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "*.js",
+    "config/",
+    "font/",
+    "style/"
+  ],
+  "keywords": [
+    "x-box",
+    "popup",
+    "box"
+  ],
+  "author": "ilx1",
+  "license": "MIT",
+  "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iLx11/xBox.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iLx11/xBox/issues"
+  },
+  "homepage": "https://github.com/iLx11/xBox#readme"
+}

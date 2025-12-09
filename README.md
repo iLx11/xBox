@@ -1,3 +1,15 @@
+## 下载
+
+```cmd
+pnpm add ilx1-x-box --save
+
+#or
+
+npm i ilx1-x-box --save
+```
+
+
+
 ## 默认配置
 
 ```js
@@ -21,7 +33,8 @@ export const defaultBoxConfig = {
 ## 使用
 
 ```js
-import { XBox } from 'xxxx/xBox/xBox.js'
+import { XBox } from 'ilx1-x-box'
+import 'ilx1-x-box/style/xBox.css'
 
 XBox.popMes('弹出盒子', {
    type: 'mes',
